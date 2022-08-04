@@ -51,7 +51,6 @@ export default {
       numAnim,
       initCountup,
       countupRef,
-      // props, // TODO: 这行不确定是否要加
     };
   },
 };

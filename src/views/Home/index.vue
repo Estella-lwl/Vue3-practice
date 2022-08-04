@@ -14,16 +14,19 @@
       suffix: '',
     }"
   ></CountUp>
+
+  <Test></Test>
 </template>
 
 <script>
 import { ref } from "vue";
 // import CountUp from "@/components/CountUp.vue";
 import CountUp from "@/components/CountUp.vue";
+import Test from "@/views/Test/index.vue";
 
 export default {
   name: "",
-  components: { CountUp },
+  components: { CountUp, Test },
   setup() {
     let start = ref(2022);
     let end = ref(0);
