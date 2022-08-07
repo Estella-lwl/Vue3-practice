@@ -9,6 +9,8 @@
 
   <hr />
   <Home></Home>
+  <UseHook></UseHook>
+  <UseCustomRef></UseCustomRef>
   <!-- <CountUp
     class="myCounter"
     :end="2500"
@@ -25,38 +27,42 @@
 </template>
 
 <script>
-import { ref, isRef, watch } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue";
-import Test from "@/components/Test";
-import Demo from "@/components/Demo";
-import Home from "@/views/Home";
+import { ref, isRef, watch } from 'vue';
+import HelloWorld from '@/components/HelloWorld.vue';
+import Test from '@/components/Test';
+import Demo from '@/components/Demo';
+import Home from '@/views/Home';
 // import CountUp from "@/components/CountUp";
+import UseHook from '@/views/UseHook';
+import UseCustomRef from '@/views/UseCustomRef';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     HelloWorld,
     Test,
     Demo,
     Home,
     // CountUp,
+    UseHook,
+    UseCustomRef
   },
   setup() {
-    let name = ref("lihua");
+    let name = ref('lihua');
     let age = ref(18);
     let job = ref();
     let isShowDemo = ref(true);
 
-    console.log("是否为ref对象", isRef(name));
+    console.log('是否为ref对象', isRef(name));
 
     watch((isShowDemo, newVal) => {
-      console.log("点击了");
+      console.log('点击了');
       if (newVal === true) {
         //
-        console.log("显示");
+        console.log('显示');
       } else {
         //
-        console.log("隐藏");
+        console.log('隐藏');
       }
     });
 
@@ -64,9 +70,9 @@ export default {
       name,
       age,
       job,
-      isShowDemo,
+      isShowDemo
     };
-  },
+  }
 };
 </script>
 
