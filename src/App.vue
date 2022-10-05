@@ -4,6 +4,9 @@
   <button @click="isShowDemo = !isShowDemo">切换隐藏/显示</button>
   <hr />
   <HelloWorld msg="Welcome to Your Vue.js App" />
+
+  <div class="test"></div>
+
   <Demo v-if="isShowDemo" />
   <Test />
 
@@ -27,14 +30,14 @@
 </template>
 
 <script>
-import { ref, isRef, watch } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue';
-import Test from '@/components/Test';
-import Demo from '@/components/Demo';
-import Home from '@/views/Home';
+import { ref, isRef, watch } from 'vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+import Test from '@/components/Test'
+import Demo from '@/components/Demo'
+import Home from '@/views/Home'
 // import CountUp from "@/components/CountUp";
-import UseHook from '@/views/UseHook';
-import UseCustomRef from '@/views/UseCustomRef';
+import UseHook from '@/views/UseHook'
+import UseCustomRef from '@/views/UseCustomRef'
 
 export default {
   name: 'App',
@@ -45,38 +48,38 @@ export default {
     Home,
     // CountUp,
     UseHook,
-    UseCustomRef
+    UseCustomRef,
   },
   setup() {
-    let name = ref('lihua');
-    let age = ref(18);
-    let job = ref();
-    let isShowDemo = ref(true);
+    let name = ref('lihua')
+    let age = ref(18)
+    let job = ref()
+    let isShowDemo = ref(true)
 
-    console.log('是否为ref对象', isRef(name));
+    console.log('是否为ref对象', isRef(name))
 
     watch((isShowDemo, newVal) => {
-      console.log('点击了');
+      console.log('点击了')
       if (newVal === true) {
         //
-        console.log('显示');
+        console.log('显示')
       } else {
         //
-        console.log('隐藏');
+        console.log('隐藏')
       }
-    });
+    })
 
     return {
       name,
       age,
       job,
-      isShowDemo
-    };
-  }
-};
+      isShowDemo,
+    }
+  },
+}
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,5 +87,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.test {
+  width: 160px;
+  height: 100px;
+  background: #aaa;
 }
 </style>
