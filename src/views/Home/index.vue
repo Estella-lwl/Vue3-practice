@@ -1,5 +1,13 @@
 <template>
-  <CountUp
+  <h2>HOME</h2>
+  <button @click="openModal('true')">弹窗</button>
+  <!-- <FormQuery
+    v-show="statusFlag === true"
+    link="/Home"
+    :status="statusFlag"
+  ></FormQuery> -->
+
+  <!-- <CountUp
     ref="countup"
     class="myCounter"
     :start="start"
@@ -13,34 +21,30 @@
       prefix: '',
       suffix: '',
     }"
-  ></CountUp>
-
-  <Test></Test>
+  ></CountUp> -->
+  <!-- <Test></Test> -->
 </template>
 
-<script>
-import { ref } from "vue";
-// import CountUp from "@/components/CountUp.vue";
-import CountUp from "@/components/CountUp.vue";
-import Test from "@/views/Test/index.vue";
+<script setup>
+import { ref } from 'vue';
+import CountUp from '@/components/CountUp.vue';
+import Test from '@/views/Test/index.vue';
+import FormQuery from '@/components/FormQuery/index.vue';
 
-export default {
-  name: "",
-  components: { CountUp, Test },
-  setup() {
-    let start = ref(2022);
-    let end = ref(0);
-    console.log("start end", start.value, end.value);
+// components: { CountUp, Test, FormQuery };
 
-    return {
-      start,
-      end,
-    };
-  },
-};
+let start = ref(2022);
+let end = ref(0);
+console.log('start end', start.value, end.value);
+
+let statusFlag = ref(false);
+function openModal(status) {
+  console.log('点击状态', status);
+  statusFlag.value = status;
+}
 </script>
 
-<style>
+<style scoped>
 .myCounter {
   width: 300px;
   height: 200px;
