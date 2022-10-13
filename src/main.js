@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import { router } from './router';
+import router from './router';
+// import '@/assets/less/index.less';
 
 const app = createApp(App, () => {
   // 实例创建完成后被立即调用rem换算方法,解决内容闪现问题
@@ -16,9 +17,7 @@ const app = createApp(App, () => {
   //   window.addEventListener('resize', setRemPC); //浏览器窗口大小改变时调用rem换算方法
   // }
 });
-app.use(router);
-
-app.mount('#app');
+app.use(router).mount('#app');
 // app.create(() => {
 //   // 实例创建完成后被立即调用rem换算方法,解决内容闪现问题
 //   if (

@@ -21,39 +21,28 @@ const props = defineProps({
   },
 });
 
-console.log('******props：', props, props.link);
-console.log(useRoute());
-// TODO:
-// 侧边栏切换
-const path = useRoute(); // 路由信息
-console.log('path', path);
+const route = useRoute(); // 路由信息
+console.log('route', route, route.path);
 const router = useRouter(); // 全局路由实例
-console.log('路径', router.currentRoute._rawValue.path, router, props.link);
 // computed(function isActive() {
 //   // $route：哪个路由处于活跃就是哪一个的对象， 判断是否对应当前路径
 //   console.log('路径', path);
 //   return path.indexOf(props.link) !== -1;
 // });
-// console.log(
-//   '!!!!!!!!!!!!!',
-//   path.currentRoute._rawValue.path.indexOf(props.link) !== -1
-// );
 let isActive = computed(() => {
-  console.log('路径2', router.currentRoute._rawValue.fullPath);
-  return 'router.currentRoute._rawValue.path'.indexOf(props.link) !== -1;
-  // return true;
+  // return 'router.currentRoute._rawValue.path'.indexOf(props.link) !== -1; 这种也可以拿到当前路径
+  return route.path.indexOf(props.link) !== -1;
 });
 console.log(isActive.value);
 
 // 侧边栏切换
 function switchView() {
-  console.log('link: ', props.link);
-  // 避免重复跳转导致警告：
-  if (path !== props.link) {
-    // this.$router.replace(this.link);
+  // 点击切换路径
+  if (route.path !== props.link) {
     router.replace(props.link);
     console.log('router: ', router);
   } else {
+    // 避免重复跳转导致警告：
     console.log('请勿重复点击');
   }
 }

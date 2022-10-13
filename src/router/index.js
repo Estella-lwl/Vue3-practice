@@ -1,5 +1,4 @@
-// import Vue from 'vue';
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 // Vue.use(VueRouter);
 
 // vue3的方式：
@@ -12,16 +11,18 @@ const routes = [
   },
   {
     path: '/Home',
-    components: () => import('@/views/Home/index.vue'),
+    component: () => import('@/views/Home'),
   },
   {
     path: '/Test',
-    components: () => import('@/views/Test/index.vue'),
+    component: () => import('@/views/Test'),
   },
 ];
 
-export const router = createRouter({
+const router = createRouter({
   // 这里有个括号要加：
-  history: createWebHashHistory(),
   routes,
+  history: createWebHashHistory(),
 });
+
+export default router;

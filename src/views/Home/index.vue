@@ -1,13 +1,14 @@
 <template>
-  <h2>HOME</h2>
-  <button @click="openModal('true')">弹窗</button>
-  <!-- <FormQuery
+  <div id="common-page">
+    <h2>HOME</h2>
+    <button @click="openModal('true')">弹窗</button>
+    <!-- <FormQuery
     v-show="statusFlag === true"
     link="/Home"
     :status="statusFlag"
   ></FormQuery> -->
 
-  <!-- <CountUp
+    <!-- <CountUp
     ref="countup"
     class="myCounter"
     :start="start"
@@ -22,7 +23,8 @@
       suffix: '',
     }"
   ></CountUp> -->
-  <!-- <Test></Test> -->
+    <!-- <Test></Test> -->
+  </div>
 </template>
 
 <script setup>

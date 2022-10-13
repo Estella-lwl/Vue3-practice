@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <button @click="personObj.age++">lili年龄+1</button>
-  </div>
+  <div id="common-page">
+    <h2>TEST</h2>
+    <div>
+      <button @click="personObj.age++">lili年龄+1</button>
+    </div>
 
-  <TestModules ref="modules" msg="Test Msg" @hello="handleHello">
-    <template v-slot:test>
-      <div>
-        <span>TEST插槽</span>
-        <button @click="triggerTest('@@@')">测试TEST</button>
-      </div>
-    </template>
-  </TestModules>
+    <TestModules ref="modules" msg="Test Msg" @hello="handleHello">
+      <template v-slot:test>
+        <div>
+          <span>TEST插槽</span>
+          <button @click="triggerTest('@@@')">测试TEST</button>
+        </div>
+      </template>
+    </TestModules>
+  </div>
 </template>
 
 <script>
@@ -21,12 +24,12 @@ import TestModules from './modules/TestModules';
 export default {
   name: 'Test',
   components: {
-    TestModules
+    TestModules,
   },
   setup() {
     const personObj = reactive({
       name: 'lili',
-      age: 20
+      age: 20,
     });
 
     // 监听reactive定义的一个对象中的某个属性此时捕捉不到旧值
@@ -53,9 +56,9 @@ export default {
     return {
       personObj,
       handleHello,
-      triggerTest
+      triggerTest,
     };
-  }
+  },
 };
 </script>
 
