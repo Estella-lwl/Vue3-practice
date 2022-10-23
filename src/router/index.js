@@ -16,6 +16,10 @@ const routes = [
   {
     path: '/Test',
     component: () => import('@/views/Test'),
+    children: {
+      path: '/Test/:currSpan', // 动态匹配
+      component: () => import('@/views/Test'),
+    },
   },
 ];
 

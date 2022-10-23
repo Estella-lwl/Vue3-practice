@@ -1,6 +1,9 @@
 <template>
   <div id="common-page">
-    <h2>TEST</h2>
+    <h2>
+      <router-link to="/TEST/timeSpan" style="color: #fff">TEST</router-link>
+    </h2>
+
     <div>
       <button @click="personObj.age++">lili年龄+1</button>
     </div>
