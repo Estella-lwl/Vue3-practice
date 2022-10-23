@@ -1,7 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import directives from './directives'; //导入自定义指令
 // import '@/assets/less/index.less';
+// import 'animate.css';
+import 'animate.css';
 
 const app = createApp(App, () => {
   // 实例创建完成后被立即调用rem换算方法,解决内容闪现问题
@@ -18,6 +21,8 @@ const app = createApp(App, () => {
   // }
 });
 app.use(router).mount('#app');
+directives(app);
+
 // app.create(() => {
 //   // 实例创建完成后被立即调用rem换算方法,解决内容闪现问题
 //   if (
