@@ -22,20 +22,18 @@
       </template>
     </TestModules>
 
-<<<<<<< HEAD
     <br />
     <br />
     <div class="content">
       <h2>{{ $store.state.counter }}</h2>
       <br />
       <button>查看日期</button>
-=======
+    </div>
     <div>
       <h2>name: {{ name }}</h2>
       <h2>area: {{ area }}</h2>
       <h2>age: {{ age }}</h2>
       <button @click="ageIncrease()">+</button>
->>>>>>> 0922f804f97a4a1367ff581dc6638bdc3e5c92d7
     </div>
   </div>
 </template>

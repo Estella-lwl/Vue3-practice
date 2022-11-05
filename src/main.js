@@ -1,16 +1,14 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-<<<<<<< HEAD
 import store from './store';
-=======
-import setupStore from './store';
->>>>>>> 0922f804f97a4a1367ff581dc6638bdc3e5c92d7
+// TODO:
+// import setupStore from './store';
+
 import directives from './directives'; //导入自定义指令
 // import '@/assets/less/index.less';
 import 'animate.css';
 
-<<<<<<< HEAD
 const app = createApp(App, () => {
   // 实例创建完成后被立即调用rem换算方法,解决内容闪现问题
   // if (
@@ -27,13 +25,15 @@ const app = createApp(App, () => {
 });
 app.use(router).use(store).mount('#app');
 directives(app);
-=======
-const app = createApp(App);
->>>>>>> 0922f804f97a4a1367ff581dc6638bdc3e5c92d7
+
+// TODO:
+// const app = createApp(App);
 
 app.use(router).mount('#app');
 directives(app); // 注册全局自定义指令
-setupStore(app);
+
+// TODO:
+// setupStore(app);
 
 // rem适配：
 if (

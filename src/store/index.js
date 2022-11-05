@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createStore } from 'vuex';
 
 const store = createStore({
@@ -10,15 +9,15 @@ const store = createStore({
 });
 
 export default store;
-=======
-import { App } from 'vue';
-import { createPinia } from 'pinia';
 
-const store = createPinia();
+// TODO:
+// import { App } from 'vue';
+// import { createPinia } from 'pinia';
 
-export function setupStore(app) {
-  app.use(store);
-}
+// const store = createPinia();
 
-export { store };
->>>>>>> 0922f804f97a4a1367ff581dc6638bdc3e5c92d7
+// export function setupStore(app) {
+//   app.use(store);
+// }
+
+// export { store };
