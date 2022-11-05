@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import store from './store';
 import directives from './directives'; //导入自定义指令
 // import '@/assets/less/index.less';
 // import 'animate.css';
@@ -20,7 +21,7 @@ const app = createApp(App, () => {
   //   window.addEventListener('resize', setRemPC); //浏览器窗口大小改变时调用rem换算方法
   // }
 });
-app.use(router).mount('#app');
+app.use(router).use(store).mount('#app');
 directives(app);
 
 // app.create(() => {

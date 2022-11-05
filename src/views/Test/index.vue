@@ -3,19 +3,32 @@
     <h2>
       <router-link to="/TEST/timeSpan" style="color: #fff">TEST</router-link>
     </h2>
+    <br />
+    <hr />
 
+    <br />
     <div>
       <button @click="personObj.age++">lili年龄+1</button>
     </div>
 
+    <br />
     <TestModules ref="modules" msg="Test Msg" @hello="handleHello">
       <template v-slot:test>
         <div>
           <span>TEST插槽</span>
+          <br />
           <button @click="triggerTest('@@@')">测试TEST</button>
         </div>
       </template>
     </TestModules>
+
+    <br />
+    <br />
+    <div class="content">
+      <h2>{{ $store.state.counter }}</h2>
+      <br />
+      <button>查看日期</button>
+    </div>
   </div>
 </template>
 
@@ -65,4 +78,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.content {
+  width: 100%;
+  text-align: center;
+}
+</style>
