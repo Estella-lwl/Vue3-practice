@@ -22,60 +22,68 @@
       </template>
     </TestModules>
 
+    <!-- pinia -->
+    <!-- <div>
+      <h2>name: {{ name }}</h2>
+      <h2>area: {{ area }}</h2>
+      <h2>age: {{ age }}</h2>
+      <button @click="ageIncrease()">+</button>
+    </div>
     <br />
-    <br />
-    <div class="content">
+    <br /> -->
+
+    <!-- vuex4，先注释 -->
+    <!-- <div class="content">
       <h2>{{ $store.state.counter }}</h2>
       <br />
       <button>查看日期</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
-<script>
-import { reactive } from '@vue/reactivity';
-import { watch } from '@vue/runtime-core';
+<script setup>
+import { ref, reactive, watch } from 'vue';
+// import { storeToRefs } from 'pinia';
 import TestModules from './modules/TestModules';
+// import { useTestStore } from '@/store/modules/test.js';
 
-export default {
-  name: 'Test',
-  components: {
-    TestModules,
+const personObj = reactive({
+  name: 'lili',
+  age: 20,
+});
+
+// 监听reactive定义的一个对象中的某个属性此时捕捉不到旧值
+// -打印仍为新值;
+// -且强制开启deep，配置无效
+watch(
+  personObj,
+  (newVal, oldVal) => {
+    console.log('新值：', newVal);
+    console.log('旧值：', oldVal);
   },
-  setup() {
-    const personObj = reactive({
-      name: 'lili',
-      age: 20,
-    });
+  { deep: false }
+);
 
-    // 监听reactive定义的一个对象中的某个属性此时捕捉不到旧值
-    // -打印仍为新值;
-    // -且强制开启deep，配置无效
-    watch(
-      personObj,
-      (newVal, oldVal) => {
-        console.log('新值：', newVal);
-        console.log('旧值：', oldVal);
-      },
-      { deep: false }
-    );
+function handleHello(value) {
+  alert(`TEST已被触发, ${value}`);
+  // setup接收context，可以使用：
+}
 
-    function handleHello(value) {
-      alert(`TEST已被触发, ${value}`);
-      // setup接收context，可以使用：
-    }
+function triggerTest(value) {
+  console.log('value: ', value);
+}
 
-    function triggerTest(value) {
-      console.log('value: ', value);
-    }
-
-    return {
-      personObj,
-      handleHello,
-      triggerTest,
-    };
-  },
-};
+// pinia：
+// 使用state数据：
+// const store = useTestStore();
+// console.log('store: ', store, store.age);
+// let { name, area, age } = storeToRefs(store); // 使用解构将失去响应式，利用storeToRefs解决。
+// const { name, area } = store;
+// let age = ref(store.age); // 或者可以用ref单独写。
+// function ageIncrease() {
+//   age.value++;
+//   console.log(age, store.age);
+// }
 </script>
 
 <style scoped>
